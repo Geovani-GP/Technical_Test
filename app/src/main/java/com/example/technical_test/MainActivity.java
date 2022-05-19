@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.technical_test.Options.BasicAuthInterceptor;
 
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         String requestData = "grant_type=" + grant_type + "&username=" + username + "&password=" + password;
         try {
             loginRequest(apURL, requestData);
+            Toast.makeText(this,"Token creado",Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, MainActivity2.class);
             startActivity(intent);
         } catch (IOException e) {
@@ -110,7 +112,6 @@ public class MainActivity extends AppCompatActivity {
                         SharedPreferences.Editor editor = preferencias.edit();
                         editor.putString("token", owner);
                         editor.commit();
-
                         System.out.println(owner);
                     } catch (JSONException e) {
                         e.printStackTrace();

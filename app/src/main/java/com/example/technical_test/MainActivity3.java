@@ -75,6 +75,9 @@ public class MainActivity3 extends AppCompatActivity {
             String requestData = "{\n    \"operationId\": " + operationId + ",\n    \"data\": {\n        \"activityStatus\": \"FINALIZADO\",\n        \"activityValue\": \"" + activityValue + "\",\n        \"code\": \"VALIDATED\",\n        \"data\": \"\",\n        \"productId\": 1,\n        \"secuence\": 15,\n        \"workflowId\": 1\n    },\n    \"metadata\": {\n        \"accuracy\": 90.048004,\n        \"deviceInfo\": \"Motorola moto g(6) plus\",\n        \"latitude\": 19.59443968,\n        \"longitude\": -99.02765932,\n        \"timeZoneId\": 1,\n        \"userId\": 3\n    }\n}";
             try {
                 loginRequest(apURL, requestData);
+                Toast.makeText(this,"Actualizacion Correcta",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, MainActivity4.class);
+                startActivity(intent);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -116,6 +119,7 @@ public class MainActivity3 extends AppCompatActivity {
             }
         });
     }
+
 
     public void next_screen(View v) {
         Intent intent = new Intent(this, MainActivity4.class);

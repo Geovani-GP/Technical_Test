@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.example.technical_test.Options.BasicAuthInterceptor;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,7 +40,7 @@ public class MainActivity4 extends AppCompatActivity {
         setContentView(R.layout.activity_main4);
         TvConsulta = (TextView) findViewById(R.id.TvConsulta);
         TvTemp = (TextView) findViewById(R.id.TvTemp);
-        DataStorage();
+
     }
 
     public void consultarDato(View v) {
@@ -51,6 +53,7 @@ public class MainActivity4 extends AppCompatActivity {
         String requestData = "";
         try {
             loginRequest(apURL, requestData);
+            DataStorage();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -98,6 +101,7 @@ public class MainActivity4 extends AppCompatActivity {
         prefe.edit().clear().apply();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        Toast.makeText(this,"Storage:Clean",Toast.LENGTH_SHORT).show();
     }
 
     public void DataStorage() {
@@ -107,5 +111,6 @@ public class MainActivity4 extends AppCompatActivity {
         String DatosFinales = prefe.getString("datosFinales", "data");
         TvTemp.setText("DataStorage: \n token: " + token + " \n OperationId: " + operationId);
         TvConsulta.setText(DatosFinales);
+
     }
 }

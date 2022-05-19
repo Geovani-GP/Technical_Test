@@ -36,7 +36,6 @@ import okhttp3.Response;
 public class MainActivity2 extends AppCompatActivity {
     public OkHttpClient client;
     private TextView ETacceso, ETproducto;
-
     public static final MediaType CONTENT_TYPE = MediaType.parse("application/json");
     String apURL = "https://apidev.buroidentidad.com:9425/bid/rest/v1/operations";
     @Override
@@ -83,6 +82,9 @@ public class MainActivity2 extends AppCompatActivity {
             String requestData = "{\n    \"data\": {\n        \"activityStatus\": \"PENDIENTE\",\n        \"activityValue\": \"\",\n        \"code\": \"" + producto + "\",\n        \"data\": \"\",\n        \"productId\": 1,\n        \"secuence\": 1,\n        \"workflowId\": 1\n    },\n    \"metadata\": {\n        \"accuracy\": 16.08,\n        \"deviceInfo\": \"Motorola moto g(6) plus\",\n        \"latitude\": 19.59450382,\n        \"longitude\": -99.02764833,\n        \"timeZoneId\": 1,\n        \"userId\": 1\n    }\n}";
             try {
                 loginRequest(apURL, requestData);
+                Toast.makeText(this,"Insercion Correcto",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, MainActivity3.class);
+                startActivity(intent);
             } catch (IOException e) {
                 e.printStackTrace();
             }
