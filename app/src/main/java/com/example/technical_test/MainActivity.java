@@ -29,6 +29,12 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+/**
+ *
+ * Esta Clase se utiliza para el consumo de un servicio RestFull de tipo "Post" para Generar token, utilizando una autenticación Oauth 2.0 Bearer, con OkHttp.
+ * @author Geovani Gómez Pérez
+ * @since version 1.1.51.
+ */
 public class MainActivity extends AppCompatActivity {
     public OkHttpClient client;
 
@@ -94,15 +100,13 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-
+                SharedPreferences preferencias = getSharedPreferences("data", Context.MODE_PRIVATE);
                 String responseData = response.body().string();
                 JSONObject json = null;
                 try {
                     json = new JSONObject(responseData);
                     try {
                         final String owner = json.getString("access_token");
-
-                        SharedPreferences preferencias = getSharedPreferences("data", Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = preferencias.edit();
                         editor.putString("token", owner);
                         editor.commit();
