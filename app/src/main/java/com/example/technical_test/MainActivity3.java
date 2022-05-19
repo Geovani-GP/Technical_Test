@@ -110,7 +110,6 @@ public class MainActivity3 extends AppCompatActivity {
                     json = new JSONObject(responseData);
                     final JSONObject data = json.getJSONObject("data");
                     Log.e("Mensaje: ", "Buscando :" + data);
-                    finish();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

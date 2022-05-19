@@ -86,7 +86,6 @@ public class MainActivity4 extends AppCompatActivity {
                     SharedPreferences.Editor editor = prefe.edit();
                     editor.putString("datosFinales", String.valueOf(data));
                     editor.commit();
-                    finish();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

@@ -122,7 +122,6 @@ public class MainActivity2 extends AppCompatActivity {
                     SharedPreferences.Editor editor = prefe.edit();
                     editor.putString("operationId", operationId);
                     editor.commit();
-                    finish();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

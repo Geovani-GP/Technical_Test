@@ -110,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
                         SharedPreferences.Editor editor = preferencias.edit();
                         editor.putString("token", owner);
                         editor.commit();
-                        finish();
 
                         System.out.println(owner);
                     } catch (JSONException e) {
